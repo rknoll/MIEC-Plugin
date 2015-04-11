@@ -1,0 +1,24 @@
+{
+  parserClass="at.rknoll.miecplugin.parser.MiecParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Miec"
+  psiImplClassSuffix="Impl"
+  psiPackage="at.rknoll.miecplugin.psi"
+  psiImplPackage="at.rknoll.miecplugin.psi.impl"
+
+  elementTypeHolderClass="at.rknoll.miecplugin.psi.MiecTypes"
+  elementTypeClass="at.rknoll.miecplugin.psi.MiecElementType"
+  tokenTypeClass="at.rknoll.miecplugin.psi.MiecTokenType"
+
+  psiImplUtilClass="at.rknoll.miecplugin.psi.MiecPsiImplUtil"
+}
+
+simpleFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY {mixin="at.rknoll.miecplugin.psi.impl.MiecNamedElementImpl"
+                                            implements="at.rknoll.miecplugin.psi.MiecNamedElement"
+                                            methods=[getKey getValue getName setName getNameIdentifier getPresentation]}

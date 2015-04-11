@@ -1,0 +1,7 @@
+.idea
+MiecPlugin.jar
+gen
+out
+*.skeleton
+*.java~
+.DS_Store

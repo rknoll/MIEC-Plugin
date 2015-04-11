@@ -1,0 +1,57 @@
+<idea-plugin version="2">
+  <id>at.rknoll.miecplugin</id>
+  <name>Miec Language Plugin</name>
+  <version>1.0</version>
+  <vendor email="richard@rknoll.at" url="http://www.rknoll.at">RKnoll</vendor>
+
+  <description><![CDATA[
+      This is a Plugin to support Miec Source Files in IntelliJ IDEA.
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Initial Plugin Draft.
+    ]]>
+  </change-notes>
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="131"/>
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <fileTypeFactory implementation="at.rknoll.miecplugin.MiecFileTypeFactory"/>
+    <lang.parserDefinition language="Miec" implementationClass="at.rknoll.miecplugin.MiecParserDefinition"/>
+    <lang.syntaxHighlighterFactory key="Miec" implementationClass="at.rknoll.miecplugin.MiecSyntaxHighlighterFactory"/>
+    <colorSettingsPage implementation="at.rknoll.miecplugin.MiecColorSettingsPage"/>
+    <annotator language="JAVA" implementationClass="at.rknoll.miecplugin.MiecAnnotator"/>
+    <codeInsight.lineMarkerProvider language="JAVA" implementationClass="at.rknoll.miecplugin.MiecLineMarkerProvider"/>
+    <completion.contributor language="Miec" implementationClass="at.rknoll.miecplugin.MiecCompletionContributor"/>
+    <psi.referenceContributor implementation="at.rknoll.miecplugin.MiecReferenceContributor"/>
+    <lang.refactoringSupport language="Miec" implementationClass="at.rknoll.miecplugin.MiecRefactoringSupportProvider"/>
+    <lang.findUsagesProvider language="Miec" implementationClass="at.rknoll.miecplugin.MiecFindUsagesProvider"/>
+    <lang.foldingBuilder language="JAVA" implementationClass="at.rknoll.miecplugin.MiecFoldingBuilder"/>
+    <gotoSymbolContributor implementation="at.rknoll.miecplugin.MiecChooseByNameContributor"/>
+    <lang.psiStructureViewFactory language="Miec" implementationClass="at.rknoll.miecplugin.MiecStructureViewFactory"/>
+    <lang.formatter language="Miec" implementationClass="at.rknoll.miecplugin.MiecFormattingModelBuilder"/>
+    <codeStyleSettingsProvider implementation="at.rknoll.miecplugin.MiecCodeStyleSettingsProvider"/>
+    <langCodeStyleSettingsProvider implementation="at.rknoll.miecplugin.MiecLanguageCodeStyleSettingsProvider"/>
+    <lang.commenter language="Miec" implementationClass="at.rknoll.miecplugin.MiecCommenter"/>
+  </extensions>
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+</idea-plugin>
